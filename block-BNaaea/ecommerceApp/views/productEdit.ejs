@@ -1,0 +1,57 @@
+<%- include('partials/header') -%>
+    <h1>Edit Product</h1>
+    <form action="/products/<%= product.id %>" method="POST" class="form">
+      <div>
+        <label for="name">Name :</label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Enter name"
+          value="<%= product.name %>"
+        />
+      </div>
+      <div>
+        <label for="quantity">Quantity :</label>
+        <input
+          type="number"
+          name="quantity"
+          id="quantity"
+          placeholder="Enter quantity"
+          value="<%= product.quantity %>"
+        />
+      </div>
+      <div>
+        <label for="price">Price :</label>
+        <input
+          type="number"
+          name="price"
+          id="price"
+          placeholder="Enter price"
+          value="<%= product.price %>"
+        />
+      </div>
+      <div>
+        <label for="image">Image :</label>
+        <input
+          type="text"
+          name="image"
+          id="image"
+          placeholder="Enter image URL"
+          value="<%= product.image %>"
+        />
+      </div>
+      <div>
+        <label for="categories">Categories :</label>
+        <input
+          type="text"
+          name="category"
+          id="categories"
+          placeholder="Enter product categories"
+          value="<%= product.category %>"
+        />
+      </div>
+      <input type="submit" value="Edit Product" class="btn" />
+    </form>
+  </body>
+</html>

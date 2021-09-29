@@ -1,0 +1,39 @@
+<%- include('partials/header') -%>
+    <h1><%= product.name %></h1>
+    <% if(error) { %>
+      <p class="error"><%= error %></p>
+    <% } %>
+    <div class="articles">
+      <div class="flex">
+        <img
+          src="<%= product.image %>"
+          alt="<%= product.name %>"
+          class="product-img"
+        />
+        <div class="article-item">
+          <h3></h3>
+          <h4>Price: ₹<%= product.price %></h4>
+          <p>Quantity: <%= product.quantity %></p>
+          <p>Categories: <% product.category.forEach(category => { %>
+            <%= category %>  
+          <% }) %></p>
+          <p>Likes: <%= product.likes ? product.likes : 0 %></p>
+          <div class="btns comment-btns">
+            <% if(!user.isAdmin) { %>
+            <a href="/products/<%= product.id %>/like" class="btn">Like 👍</a>
+            <a href="/products/<%= product.id%>/dislike" class="btn"
+              >Dislike 👎</a
+            >
+            <a href="/products/<%= product.id%>/cart" class="btn"
+              >Add to Cart</a
+            >
+            <% } else if(user.isAdmin) { %>
+            <a href="/products/<%= product.id %>/edit" class="btn">Edit</a>
+            <a href="/products/<%= product.id %>/delete" class="btn">Delete</a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
