@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container header">
+        <h2>
+          <a class="logo" href="/">PODCAST</a>
+        </h2>
+        <nav class="nav_bar">
+          <% if(user) { %>
+          <a href="" class="user"><%= user.name %></a>
+          <a class="btn btn_nav" href="/home">Home</a>
+          <a class="btn btn_nav" href="/users/logout">logout</a>
+          <% } else { %>
+          <a class="btn btn_nav" href="/users/login">login</a>
+          <a class="btn btn_nav" href="/users/register">Register</a>
+          <% } %>
+        </nav>
+      </div>
+    </header>
+  </body>
+</html>

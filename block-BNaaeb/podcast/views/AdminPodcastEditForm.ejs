@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('./include/header'); -%>
+    <div class="container">
+      <section class="user_sec">
+        <p class="text-center">
+          Hello <span class="color-sec"><%= user.name %> </span>edit your
+          podcast here.
+        </p>
+      </section>
+      <section class="form">
+        <h2>Podcast Edit Form</h2>
+        <form action="/client/newPodcast" method="POST">
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            class="input_handle"
+            value="<%=podcast.name  %>"
+          />
+          <input
+            type="text"
+            name="image"
+            placeholder="Enter image URL"
+            class="input_handle"
+            value="<%=podcast.image  %>"
+          />
+          <input
+            type="text"
+            name="video"
+            placeholder="Enter video URL"
+            class="input_handle"
+            value="<%=podcast.video  %>"
+          />
+          <div class="center">
+            <button type="submit" class="btn btn_sub">Submit</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <%- include('./include/footer'); -%>
+  </body>
+</html>

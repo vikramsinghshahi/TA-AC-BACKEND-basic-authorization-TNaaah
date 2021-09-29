@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('./include/header'); -%>
+    <div class="container">
+      <section class="client_sec">
+        <p>
+          Welcome <span class="color-sec"><%= user.name %> </span> to client
+          dashboard
+        </p>
+        <h1>This is Dashboard page</h1>
+        <div class="button_sec">
+          <a
+            href="/client/listOfPodcast/<%= user.userType %>"
+            class="btn btn_primary"
+            >List of podcasts</a
+          >
+          <a href="/client/newPodcast" class="btn btn_primary">New Podcast</a>
+        </div>
+      </section>
+    </div>
+    <%- include('./include/footer'); -%>
+  </body>
+</html>
