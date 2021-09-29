@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('./include/header'); -%>
+    <div class="container">
+      <section class="podcast_user">
+        <h1 class="text-center">
+          Welcome <span class="color-sec"><%= user.name %> </span> to podcast
+          Details page
+        </h1>
+        <div class="btn_back">
+          <h2 class="text-center"><%= podcast.name %></h2>
+          <a
+            href="/admin/listOfPodcast/<%= user.userType  %>"
+            class="btn btn_primary"
+            >Back to list</a
+          >
+        </div>
+      </section>
+      <article class="podcast_card">
+        <div class="img-div">
+          <img src="<%= podcast.image %> " alt="image" class="flexi-img" />
+        </div>
+        <div class="podcast_text">
+          <h4 class="text-center">
+            Created By:-
+            <span class="color-pri"> <%= podcast.createdBy.name %></span>
+          </h4>
+          <h4 class="text-center">
+            Podcast link:-
+            <a class="btn btn_primary" href="<%= podcast.video  %>">Link</a>
+          </h4>
+          <h4 class="text-center">
+            Created for type:-
+            <span class="color-sec"><%= podcast.forUserType %> </span> User
+          </h4>
+          <h4 class="text-center">
+            Likes :- <span class="color-pri"><%= podcast.likes %> </span>
+          </h4>
+          <div class="btn_div">
+            <a
+              href="/podcast/<%= podcast.id  %>/likes/like"
+              class="btn btn_primary"
+              >Like</a
+            >
+            <a
+              href="/podcast/<%= podcast.id  %>/likes/dislike"
+              class="btn btn_primary"
+              >Dislike</a
+            >
+          </div>
+          <% if(user.id===podcast.createdBy.id){ %>
+          <div class="btn_div">
+            <a href="/podcast/<%= podcast.id  %>/edit" class="btn btn_edit"
+              >Edit</a
+            >
+            <a href="/podcast/<%= podcast.id  %>/delete" class="btn btn_delete"
+              >Delete</a
+            >
+          </div>
+          <% } %> <% if(podcast.verified===false){ %>
+          <div class="flex center">
+            <a
+              href="/admin/podcast/<%= podcast.id  %>/verify"
+              class="btn btn_primary"
+              >Click here to Verify</a
+            >
+          </div>
+          <% } %>
+        </div>
+      </article>
+    </div>
+    <%- include('./include/footer'); -%>
+  </body>
+</html>
