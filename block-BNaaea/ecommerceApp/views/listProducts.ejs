@@ -1,0 +1,27 @@
+<%- include('partials/header') -%>
+    <h1>Products</h1>
+    <form class="filter-form">
+      <label for="category">Choose a category : </label>
+      <select id="category" name="category">
+        <option value="all">All</option>
+        <% categories.forEach(category => { %>
+          <option value="<%= category %>"><%= category %></option>
+        <% }) %>
+      </select>
+      <input type="submit" value="Submit" class="btn">
+    </form>
+
+    <div class="articles flex">
+      <% if(products.length) { %> <% products.forEach(product => { %>
+      <div class="article-title">
+        <a href="/products/<%= product.id %>">
+          <h3><%= product.name %></h3>
+        </a>
+        <img src="<%= product.image%>" alt="<%= product.name %>" />
+      </div>
+      <% }) %> <% } else {%>
+      <h4>No Products Present</h4>
+      <% } %>
+    </div>
+  </body>
+</html>
