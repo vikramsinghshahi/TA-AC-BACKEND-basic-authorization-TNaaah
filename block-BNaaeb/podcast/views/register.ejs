@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('./include/header'); -%>
+    <div class="container">
+      <section class="form">
+        <h2>Registration</h2>
+        <% if(error){ %>
+        <p class="text_error"><%= error %></p>
+        <% } %>
+        <form action="/users/register" method="POST">
+          <input
+            type="text"
+            name="name"
+            placeholder="Name"
+            class="input_handle"
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            class="input_handle"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            class="input_handle"
+          />
+          <label class="select" for="">Choose Account type</label>
+          <div class="radio_btn">
+            <input type="radio" id="free" name="userType" value="free" />
+            <label for="free" class="text-sm">Free</label><br />
+            <input type="radio" id="vip" name="userType" value="vip" />
+            <label for="vip" class="text-sm">VIP</label><br />
+            <input type="radio" id="premium" name="userType" value="premium" />
+            <label for="premium" class="text-sm">PREMIUM</label>
+            <input type="radio" id="admin" name="userType" value="admin" />
+            <label for="admin" class="text-sm">Admin</label>
+          </div>
+
+          <div class="center">
+            <button type="submit" class="btn btn_sub">Register</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <%- include('./include/footer'); -%>
+  </body>
+</html>

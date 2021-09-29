@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <%- include('./include/header'); -%>
+    <div class="container">
+      <section class="podcast">
+        <h2>All Podcasts</h2>
+        <div class="btn_div">
+          <a href="/admin/listOfPodcast %>" class="btn btn_primary"
+            >All Podcasts</a
+          >
+          <a href="/admin/listOfPodcast/myOwn" class="btn btn_primary"
+            >My Podcasts</a
+          >
+          <a href="/admin/listOfPodcast/verification" class="btn btn_primary"
+            >For Verification</a
+          >
+        </div>
+        <div class="podcast_content admin">
+          <% podcasts.forEach(podcast=>{ %>
+          <article class="podcast flex jsb card">
+            <div class="img-div">
+               <img
+                class="flexi-img"
+                src="<%= podcast.image  %>"
+                alt="podcast img"
+              />
+            </div>
+            <div class="flex center">
+              <h4>
+                Title:- <span class="color-pri"> <%= podcast.name %></span>
+              </h4>
+            </div>
+            <div class="flex center">
+              <a
+                href="/admin/podcast/<%= podcast.id  %>"
+                class="btn btn_primary"
+                >More Details</a
+              >
+            </div>
+            <div class="flex verify">
+              <h4 class="">
+                verified:-
+                <span class="color-pri"> <%= podcast.verified %></span>
+              </h4>
+            </div>
+          </article>
+          <% }) %>
+        </div>
+      </section>
+    </div>
+    <%- include('./include/footer'); -%>
+  </body>
+</html>
