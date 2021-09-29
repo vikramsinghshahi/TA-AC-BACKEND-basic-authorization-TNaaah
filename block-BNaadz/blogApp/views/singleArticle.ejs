@@ -1,0 +1,66 @@
+<%- include('partials/header') -%>
+    <h1><%= article.title %></h1>
+    <div class="articles">
+      <div class="">
+        <div class="article-item">
+          <h3></h3>
+          <h5>Author: <%= article.author.fullName %></h5>
+          <p><%= article.description %></p>
+          <p>Likes: <%= article.likes ? article.likes : 0 %></p>
+          <% if(articleError) { %>
+            <p class="error btns-align"><%= articleError %></p>
+          <% } %>
+          <div class="btns btns-align">
+            <a href="/articles/<%= article.id %>/like" class="btn">Like 👍</a>
+            <a href="/articles/<%= article.id %>/dislike" class="btn"
+              >Dislike 👎</a
+            >
+            <a href="/articles/<%= article.slug %>/edit" class="btn">Edit</a>
+            <a href="/articles/<%= article.slug %>/delete" class="btn"
+              >Delete</a
+            >
+          </div>
+        </div>
+        <div class="add-comment">
+          <form
+            class="comment-form"
+            action="/articles/<%= article.slug %>/comments"
+            method="POST"
+          >
+            <textarea
+              name="content"
+              placeholder="Enter Comment"
+              rows="5"
+            ></textarea>
+            <input type="submit" value="Add Comment" class="btn" />
+          </form>
+        </div>
+      </div>
+      <div class="comments">
+        <h2>Comments</h2>
+        <% if(article.comments.length === 0) { %>
+          <p class="align-center">No comments</p>
+        <% } %>
+        <% if(error) { %>
+          <p class="error"><%= error %></p>
+        <% } %>
+        <% article.comments.forEach(comment => { %>
+        <div class="comment-item">
+          <p class="content"><%= comment.content %></p>
+          <p class="author">- <%= comment.author.fullName %></p>
+          <p>Likes: <%= comment.likes %></p>
+          <div class="btns comment-btns">
+            <a href="/comments/<%= comment.id %>/like" class="btn">Like 👍</a>
+            <a href="/comments/<%= comment.id %>/dislike" class="btn"
+              >Dislike 👎</a
+            >
+            <a href="/comments/<%= comment.id %>/edit" class="btn">Edit</a>
+            <a href="/comments/<%= comment.id %>/delete" class="btn">Delete</a>
+          </div>
+        </div>
+
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

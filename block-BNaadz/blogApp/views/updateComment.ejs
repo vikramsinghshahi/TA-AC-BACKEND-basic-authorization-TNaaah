@@ -1,0 +1,17 @@
+<%- include('partials/header') -%> 
+    <h1>Edit Comment</h1>
+    <form action="/comments/<%= comment.id %>" method="POST" class="form">
+      <div>
+        <label for="content">Comment :</label>
+        <input
+          type="text"
+          name="content"
+          id="content"
+          placeholder="Enter comment"
+          value="<%= comment.content%>"
+        />
+      </div>
+      <input type="submit" value="Edit Comment" class="btn" />
+    </form>
+  </body>
+</html>
