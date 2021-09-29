@@ -1,0 +1,46 @@
+<%- include('partials/header') -%>
+    <h1 class="page-title">Register</h1>
+    <% if(error) { %>
+    <p class="error"><%= error %></p>
+    <% } %>
+
+    <form action="/users/register" method="POST" class="form">
+      <div>
+        <label for="firstName">First Name: </label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="Enter first name"
+        />
+      </div>
+      <div>
+        <label for="lastName">Last Name: </label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Enter last name"
+        />
+      </div>
+      <div>
+        <label for="email">Email: </label>
+        <input type="email" id="email" name="email" placeholder="Enter email" />
+      </div>
+      <div>
+        <label for="password">Password: </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter password"
+        />
+      </div>
+      <div>
+        <label for="city">City : </label>
+        <input type="text" id="city" name="city" placeholder="Enter city" />
+      </div>
+      <input type="submit" value="Register" class="btn" />
+    </form>
+  </body>
+</html>
