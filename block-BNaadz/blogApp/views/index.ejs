@@ -1,0 +1,18 @@
+<%- include('partials/header') -%>
+<% if(user) { %>
+  <h1 class="page-title">Welcome, <%= user.fullName %></h1>
+  <div class="btns">
+    <a href="/articles" class="btn">View Articles</a>
+    <a href="/articles/my-articles" class="btn">View My Articles</a> 
+    <a href="/articles/new" class="btn">Create an Article</a>
+  </div>
+<% } else { %>
+  <main class="intro">
+    <a href="/users/register" class="btn">Register</a>
+    <a href="/users/login" class="btn">Login</a>
+    <a href="/articles" class="btn">View Articles</a>
+  </main>
+<% } %>
+    
+  </body>
+</html>
