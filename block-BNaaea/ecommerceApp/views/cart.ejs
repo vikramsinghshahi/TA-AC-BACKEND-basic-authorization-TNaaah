@@ -1,0 +1,22 @@
+<%- include('partials/header') -%>
+    <h1>Products</h1>
+    <div class="btns"></div>
+    <div class="articles">
+      <% if(user.cart.length === 0) { %>
+      <p>
+        No items present in cart. Shop for products <a href="/products">here</a>
+      </p>
+      <% } else { %> <% user.cart.forEach( product => { %>
+      <div class="cart-item flex">
+        <img src="<%= product.image %>" alt="<%= product.name %>" />
+        <p><%= product.name %></p>
+        <p>₹<%= product.price %></p>
+      </div>
+      <hr />
+      <% }) %> <% } %>
+      <div class="price">
+        <p>Total: <span class="total-amount">₹ <%= totalPrice %></span></p>
+      </div>
+    </div>
+  </body>
+</html>

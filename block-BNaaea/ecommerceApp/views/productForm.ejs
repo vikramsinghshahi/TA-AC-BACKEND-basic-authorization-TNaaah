@@ -1,0 +1,47 @@
+<%- include('partials/header') -%>
+    <h1>Create Product</h1>
+    <form action="/products" method="POST" class="form">
+      <div>
+        <label for="name">Name :</label>
+        <input type="text" name="name" id="name" placeholder="Enter name" />
+      </div>
+      <div>
+        <label for="quantity">Quantity :</label>
+        <input
+          type="number"
+          name="quantity"
+          id="quantity"
+          placeholder="Enter quantity"
+        />
+      </div>
+      <div>
+        <label for="price">Price :</label>
+        <input
+          type="number"
+          name="price"
+          id="price"
+          placeholder="Enter price"
+        />
+      </div>
+      <div>
+        <label for="image">Image :</label>
+        <input
+          type="text"
+          name="image"
+          id="image"
+          placeholder="Enter image URL"
+        />
+      </div>
+      <div>
+        <label for="categories">Categories :</label>
+        <input
+          type="text"
+          name="category"
+          id="categories"
+          placeholder="Enter product categories"
+        />
+      </div>
+      <input type="submit" value="Create Product" class="btn" />
+    </form>
+  </body>
+</html>

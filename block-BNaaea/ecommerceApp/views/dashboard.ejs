@@ -1,0 +1,18 @@
+<%- include('partials/header') -%>
+    <h1 class="page-title">Welcome, <%= user.name %></h1>
+    <div>
+      <% if(error) { %>
+      <p class="error"><%= error %></p>
+      <% } %>
+    </div>
+    <div class="btns">
+      <a href="/products" class="btn">View Products</a>
+      <% if(user.isAdmin) { %>
+      <a href="/products/new" class="btn">Create a Product</a>
+      <a href="/users/all" class="btn">View All Users</a>
+      <% } %> <% if(!user.isAdmin) { %>
+      <a href="/users/<%= user.id %>/cart" class="btn">View Cart</a>
+      <% } %>
+    </div>
+  </body>
+</html>
